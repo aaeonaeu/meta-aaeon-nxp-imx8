@@ -307,7 +307,7 @@
 		compatible = "tcg,tpm_tis-spi";
 		spi-max-frequency = <1000000>;
 		reg = <0>;
-        status = "okay"
+        status = "okay";
 	};
 };
 
@@ -854,11 +854,11 @@
 };
 
 &usb3_0 {
+	status = "okay";
     connector {
 		compatible = "usb-a-connector";
 		vbus-supply = <&reg_usb1_vbus>;
 	};
-	status = "okay";
 };
 
 &usb_dwc3_0 {
@@ -873,11 +873,11 @@
 };
 
 &usb3_1 {
+	status = "okay";
     connector {
 		compatible = "usb-a-connector";
 		vbus-supply = <&reg_usb2_vbus>;
-	};
-	status = "okay";
+	};	
 };
 
 &usb_dwc3_1 {
