@@ -1,0 +1,15 @@
+LCONF_VERSION = "7"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+        ##OEROOT##/meta \
+        ##OEROOT##/meta-poky \
+        ##OEROOT##/../meta-openembedded/meta-oe \
+        ##OEROOT##/../meta-openembedded/meta-networking \
+        ##OEROOT##/../meta-openembedded/meta-python \
+        ##OEROOT##/../meta-freescale \
+        ##OEROOT##/../meta-aaeon-nxp-imx8 \
+"
+
