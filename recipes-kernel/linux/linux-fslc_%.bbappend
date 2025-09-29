@@ -15,5 +15,3 @@ do_configure:append() {
     install -m 0644 ${WORKDIR}/srg-imx8mp-ecspi-slave.dts ${S}/arch/arm64/boot/dts/freescale/
 }
 
-KERNEL_CONFIG_FRAGMENTS += "srg-imx8mp.cfg"
-
