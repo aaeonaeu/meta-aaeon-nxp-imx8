@@ -9,11 +9,11 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-fslc"
 PREFERRED_VERSION_linux-fslc = "6.12.%"
 
 
-KERNEL_DEVICETREE = "freescale/srg-imx8mp.dtb"
+KERNEL_DEVICETREE = "freescale/srg-imx8p.dtb"
 
 KERNEL_DEVICETREE:append = " \
-	freescale/srg-imx8mp-rpmsg.dtb \
-	freescale/srg-imx8mp-ecspi-slave.dtb \
+	freescale/srg-imx8p-rpmsg.dtb \
+	freescale/srg-imx8p-ecspi-slave.dtb \
 	"
 
 KERNEL_DEVICETREE:append:use-nxp-bsp = " \
