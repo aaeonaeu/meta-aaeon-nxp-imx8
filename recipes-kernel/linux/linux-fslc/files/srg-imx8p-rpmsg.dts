@@ -5,7 +5,7 @@
 
 /dts-v1/;
 
-#include "srg-imx8mp.dts"
+#include "srg-imx8p.dts"
 
 / {
 	aliases {
