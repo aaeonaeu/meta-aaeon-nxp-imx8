@@ -1,0 +1,15 @@
+if TARGET_SRG_IMX8P_A11_04
+
+config SYS_BOARD
+	default "srg-imx8p-a11-04"
+
+config SYS_VENDOR
+	default "aaeon"
+
+config SYS_CONFIG_NAME
+	default "srg-imx8p-a11-04"
+
+config IMX_CONFIG
+	default "board/aaeon/srg-imx8p-a11-04/imximage-8mp-lpddr4.cfg"
+
+endif

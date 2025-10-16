@@ -1,0 +1,6 @@
+SRG-IMX8P-A11 BOARD
+M:  siddhanthonnalli@aaeon.eu
+S:	Maintained
+F:	board/aaeon/srg-imx8p-a11-04/
+F:	include/configs/srg-imx8p-a11.h
+F:	configs/srg-imx8p-a11_defconfig
