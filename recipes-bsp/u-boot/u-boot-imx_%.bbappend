@@ -27,7 +27,7 @@ EXTRA_UBOOT_BOOTLOADER_FILE:srg-imx8p-a11-04 = " \
                              file://imx-boot-srg-imx8p-4g-sd.bin-flash_evk \
                             "
                             
-#UBOOT_DTB_NAME:srg-imx8p-a11-04 = "srg-imx8p-a11-04.dtb"
+UBOOT_DTB_NAME:srg-imx8p-a11-04 = "srg-imx8p-a11-04.dtb"
 EXTRA_UBOOT_BOOTLOADER:srg-imx8p-a11-04 = "imx-boot-srg-imx8p-4g-sd.bin-flash_evk"
 
 python do_patch:append() {
