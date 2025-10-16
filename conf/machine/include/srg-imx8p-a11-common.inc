@@ -46,6 +46,7 @@ DDR_FIRMWARE_NAME = " \
 
 UBOOT_CONFIG_BASENAME = "srg-imx8p-a11"
 UBOOT_CONFIG[srg-imx8p-a11-04] = "${UBOOT_CONFIG_BASENAME}_defconfig"
+UBOOT_DTB_NAME:srg-imx8p-a11-04 = "srg-imx8p-a11-04.dtb"
 
 IMXBOOT_TARGETS_BASENAME = "flash_evk"
 IMX_DEFAULT_BSP = "nxp"
