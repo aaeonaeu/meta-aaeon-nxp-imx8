@@ -1,0 +1,40 @@
+From 47a447dee617972cbef4686af81f3c9ccffb0368 Mon Sep 17 00:00:00 2001
+From: Siddhant <siddhanthonnalli@aaeon.eu>
+Date: Thu, 9 Oct 2025 11:33:12 +0200
+Subject: [PATCH] add srg-imx8p-a11-04 board
+
+---
+ arch/arm/mach-imx/imx8m/Kconfig | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/arm/mach-imx/imx8m/Kconfig b/arch/arm/mach-imx/imx8m/Kconfig
+index 473cfa8e5e3..f60c883786c 100644
+--- a/arch/arm/mach-imx/imx8m/Kconfig
++++ b/arch/arm/mach-imx/imx8m/Kconfig
+@@ -446,6 +446,16 @@ config TARGET_LIBREM5
+ 	select SUPPORT_SPL
+ 	select IMX8M_LPDDR4
+ 
++config TARGET_SRG_IMX8P_A11_04
++	bool "AAEON SRG-IMX8P-A11-04"
++	select IMX8MP
++	select SUPPORT_SPL
++	select IMX8M_LPDDR4
++	select FSL_CAAM
++	select FSL_BLOB
++	select ARCH_MISC_INIT
++	select SPL_CRYPTO if SPL
++
+ endchoice
+ 
+ source "board/advantech/imx8mp_rsb3720a1/Kconfig"
+@@ -482,5 +492,6 @@ source "board/variscite/imx8mn_var_som/Kconfig"
+ source "board/toradex/verdin-imx8mm/Kconfig"
+ source "board/toradex/verdin-imx8mp/Kconfig"
+ source "board/voxelbotics/navqp/Kconfig"
++source "board/aaeon/srg-imx8p-a11-04/Kconfig
+ 
+ endif
+-- 
+2.34.1
+
