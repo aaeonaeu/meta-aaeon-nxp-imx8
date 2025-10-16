@@ -43,3 +43,9 @@ DDR_FIRMWARE_NAME = " \
 	lpddr4_pmu_train_2d_dmem_${DDR_FIRMWARE_VERSION}.bin \
 	lpddr4_pmu_train_2d_imem_${DDR_FIRMWARE_VERSION}.bin \
 	"
+
+UBOOT_CONFIG_BASENAME = "srg-imx8p-a11"
+UBOOT_CONFIG[srg-imx8p-a11-04] = "${UBOOT_CONFIG_BASENAME}_defconfig"
+
+IMXBOOT_TARGETS_BASENAME = "flash_evk"
+IMX_DEFAULT_BSP = "nxp"
