@@ -34,6 +34,10 @@ KERNEL_DEVICETREE:append:use-nxp-bsp = " \
 	freescale/imx8mp-evk-usdhc1-m2.dtb \
 	"
 
+UBOOT_CONFIG_BASENAME = "srg-imx8p-a11-04"
+UBOOT_CONFIG[fspi] = "${UBOOT_CONFIG_BASENAME}_defconfig"
+UBOOT_CONFIG[ndm]  = "${UBOOT_CONFIG_BASENAME}_ndm_defconfig"
+UBOOT_DTB_NAME = "${UBOOT_CONFIG_BASENAME}.dtb"
 
 # Set DDR FIRMWARE
 DDR_FIRMWARE_VERSION = "202006"
@@ -44,9 +48,11 @@ DDR_FIRMWARE_NAME = " \
 	lpddr4_pmu_train_2d_imem_${DDR_FIRMWARE_VERSION}.bin \
 	"
 
-UBOOT_CONFIG_BASENAME = "srg-imx8p-a11"
-UBOOT_CONFIG[srg-imx8p-a11-04] = "${UBOOT_CONFIG_BASENAME}_defconfig"
-UBOOT_DTB_NAME:srg-imx8p-a11-04 = "srg-imx8p-a11-04.dtb"
-
 IMXBOOT_TARGETS_BASENAME = "flash_evk"
+
+# Mainline BSP doesn't support LPDDR4 so it must be set to nxp.
+# Also this machine isn't supported by u-boot-fslc but imx8mn-evk.inc already
+# set the bootloader to u-boot-imx instead when NXP BSP is used.
 IMX_DEFAULT_BSP = "nxp"
+
+SERIAL_CONSOLES = "115200;ttymxc1"
