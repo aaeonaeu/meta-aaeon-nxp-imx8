@@ -3,31 +3,32 @@ require conf/machine/include/imx8mp-evk.inc
 
 
 # Tell Yocto that our kernel is linux-imx
-PREFERRED_PROVIDER_virtual/kernel = "linux-fslc"
+PREFERRED_PROVIDER_virtual/kernel = "linux-imx"
 
-# Force a specific version of linux-imx (e.g., 6.12.34 or 6.12.20)
-PREFERRED_VERSION_linux-fslc = "6.12.%"
+# Force a specific version of linux-imx 
+PREFERRED_VERSION_linux-fslc = "6.6.%"
 
+KERNEL_DEVICETREE_BASENAME = "imx8mp-evk"
 
-KERNEL_DEVICETREE = "freescale/srg-imx8p.dtb"
+KERNEL_DEVICETREE = "freescale/srg-imx8p-a11-04.dtb"
 
 KERNEL_DEVICETREE:append = " \
-	freescale/srg-imx8p-rpmsg.dtb \
-	freescale/srg-imx8p-ecspi-slave.dtb \
+	freescale/srg-imx8p-a11-04-rpmsg.dtb \
+	freescale/srg-imx8p-a11-04-ecspi-slave.dtb \
 	"
 
 KERNEL_DEVICETREE:append:use-nxp-bsp = " \
 	freescale/imx8mp-ab2.dtb \
+	freescale/imx8mp-evk-basler.dtb \
+	freescale/imx8mp-evk-dual-basler.dtb \
+	freescale/imx8mp-evk-dual-ov2775.dtb \
 	freescale/imx8mp-evk-flexcan2.dtb \
+	freescale/imx8mp-evk-hifiberry-dacplus.dtb \
 	freescale/imx8mp-evk-inmate.dtb \
-	freescale/imx8mp-evk-it6263-lvds-dual-channel.dtb \
-	freescale/imx8mp-evk-jdi-wuxga-lvds-panel.dtb \
+	freescale/imx8mp-evk-iqaudio-dacplus.dtb \
+	freescale/imx8mp-evk-iqaudio-dacpro.dtb \
 	freescale/imx8mp-evk-ndm.dtb \
-	freescale/imx8mp-evk-ov2775.dtb \
-	freescale/imx8mp-evk-ov2775-ov5640.dtb \
 	freescale/imx8mp-evk-pcie-ep.dtb \
-	freescale/imx8mp-evk-rm67191.dtb \
-	freescale/imx8mp-evk-rm67199.dtb \
 	freescale/imx8mp-evk-root.dtb \
 	freescale/imx8mp-evk-sof-wm8960.dtb \
 	freescale/imx8mp-evk-spdif-lb.dtb \
