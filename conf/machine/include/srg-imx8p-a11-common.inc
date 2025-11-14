@@ -6,7 +6,7 @@ require conf/machine/include/imx8mp-evk.inc
 PREFERRED_PROVIDER_virtual/kernel = "linux-imx"
 
 # Force a specific version of linux-imx 
-PREFERRED_VERSION_linux-fslc = "6.6.%"
+PREFERRED_VERSION_linux-imx = "6.6.%"
 
 KERNEL_DEVICETREE_BASENAME = "imx8mp-evk"
 
