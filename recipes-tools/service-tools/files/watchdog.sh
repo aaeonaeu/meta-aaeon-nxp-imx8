@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 while true
 do
 	#i2cset -y 2 0x23 0x00 0x56

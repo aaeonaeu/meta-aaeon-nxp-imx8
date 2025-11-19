@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/sh
 
 # gpio5 for USB1_PWR_EN
 # gpio6 for USB2_PWR_EN

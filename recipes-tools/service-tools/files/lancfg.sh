@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 function  write_LAN_mac_address()
 {
