@@ -277,3 +277,4 @@ CONF_VERSION = "2"
 # Accept Freescale EULA
 ACCEPT_FSL_EULA = "1"
 
+IMAGE_INSTALL:append = " service-tools"
