@@ -1,4 +1,5 @@
-SUMMARY = "Tools required for service"
+SUMMARY = "BSP runtime service utilities"
+DESCRIPTION = "Service scripts and utilities required for proper BSP operation, including watchdog and GPIO setup."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
@@ -12,42 +13,27 @@ SRC_URI = "\
     file://m0cli \
 "
 
+inherit systemd
 
-do_install () {
-	install -d ${D}/lib/systemd/system
-	install -m 0755 ${WORKDIR}/ethernet.service ${D}/lib/systemd/system
-	install -m 0755 ${WORKDIR}/gpio.service ${D}/lib/systemd/system
-	install -m 0755 ${WORKDIR}/watchdog.service ${D}/lib/systemd/system
-	
-	install -d ${D}/usr/sbin
-	install -m 0755 ${WORKDIR}/m0cli ${D}/usr/sbin/m0cli
-	install -m 0755 ${WORKDIR}/lancfg.sh ${D}/usr/sbin
-	install -m 0755 ${WORKDIR}/setup_gpios.sh ${D}/usr/sbin
-	install -m 0755 ${WORKDIR}/watchdog.sh ${D}/usr/sbin
-	
-	install -d ${D}/lib/systemd/system/multi-user.target.wants
-	ln -sf ${D}/lib/systemd/system/ethernet.service ${D}/lib/systemd/system/multi-user.target.wants/ethernet.service
-	ln -sf ${D}/lib/systemd/system/gpio.service ${D}/lib/systemd/system/multi-user.target.wants/gpio.service
-	ln -sf ${D}/lib/systemd/system/watchdog.service ${D}/lib/systemd/system/multi-user.target.wants/watchdog.service
+SYSTEMD_SERVICE:${PN} = "\
+    ethernet.service \
+    gpio.service \
+    watchdog.service \
+"
+
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
+
+do_install() {
+    # Install systemd service units
+    install -d ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/ethernet.service  ${D}${systemd_system_unitdir}/
+    install -m 0644 ${WORKDIR}/gpio.service     ${D}${systemd_system_unitdir}/
+    install -m 0644 ${WORKDIR}/watchdog.service ${D}${systemd_system_unitdir}/
+
+    # Install scripts and tools
+    install -d ${D}${sbindir}
+    install -m 0755 ${WORKDIR}/m0cli           ${D}${sbindir}/
+    install -m 0755 ${WORKDIR}/lancfg.sh       ${D}${sbindir}/
+    install -m 0755 ${WORKDIR}/setup_gpios.sh  ${D}${sbindir}/
+    install -m 0755 ${WORKDIR}/watchdog.sh     ${D}${sbindir}/
 }
- 
-do_package_qa[noexec] = "1"
-
-
-FILES:${PN} += " /lib/systemd/system/ethernet.service"
-FILES:${PN} += " /lib/systemd/system/gpio.service"
-FILES:${PN} += " /lib/systemd/system/watchdog.service"
-
-FILES:${PN} += " /lib/systemd/system/multi-user.target.wants/ethernet.service"
-FILES:${PN} += " /lib/systemd/system/multi-user.target.wants/gpio.service"
-FILES:${PN} += " /lib/systemd/system/multi-user.target.wants/watchdog.service"
-
-FILES_${PN} += " /lib/systemd/system/ethernet.service"
-FILES_${PN} += " /lib/systemd/system/gpio.service"
-FILES_${PN} += " /usr/sbin/lancfg.sh"
-FILES_${PN} += " /usr/sbin/setup_gpios.sh"
-FILES_${PN} += " /lib/systemd/system/watchdog.service"
-FILES_${PN} += " /usr/sbin/watchdog.sh"
-FILES:${PN} += " /usr/sbin/m0cli"
-
-
