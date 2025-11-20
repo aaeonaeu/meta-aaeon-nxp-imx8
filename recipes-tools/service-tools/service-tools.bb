@@ -3,11 +3,9 @@ DESCRIPTION = "Service scripts and utilities required for proper BSP operation, 
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-SRC_URI = "\
-    file://ethernet.service \
+SRC_URI = "\ 
     file://gpio.service \
     file://watchdog.service \
-    file://lancfg.sh \
     file://setup_gpios.sh \
     file://watchdog.sh \
     file://m0cli \
@@ -16,7 +14,6 @@ SRC_URI = "\
 inherit systemd
 
 SYSTEMD_SERVICE:${PN} = "\
-    ethernet.service \
     gpio.service \
     watchdog.service \
 "
@@ -26,14 +23,12 @@ SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 do_install() {
     # Install systemd service units
     install -d ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/ethernet.service  ${D}${systemd_system_unitdir}/
     install -m 0644 ${WORKDIR}/gpio.service     ${D}${systemd_system_unitdir}/
     install -m 0644 ${WORKDIR}/watchdog.service ${D}${systemd_system_unitdir}/
 
     # Install scripts and tools
     install -d ${D}${sbindir}
     install -m 0755 ${WORKDIR}/m0cli           ${D}${sbindir}/
-    install -m 0755 ${WORKDIR}/lancfg.sh       ${D}${sbindir}/
     install -m 0755 ${WORKDIR}/setup_gpios.sh  ${D}${sbindir}/
     install -m 0755 ${WORKDIR}/watchdog.sh     ${D}${sbindir}/
 }
