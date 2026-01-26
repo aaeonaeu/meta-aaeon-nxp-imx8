@@ -7,14 +7,13 @@
 
 #include <dt-bindings/phy/phy-imx8-pcie.h>
 #include <dt-bindings/usb/pd.h>
-#include "srg-imx8p-a11-04.dtsi"
+#include "imx8mp.dtsi"
 
 / {
-	model = "NXP i.MX8MPlus EVK board";
+	model = "NXP BASED AAEON i.MX8MPlus LPDDR4 SRG-IMX8P-A11 board";
 	compatible = "fsl,imx8mp-evk", "fsl,imx8mp";
 
 	chosen {
-		bootargs = "console=ttymxc1,115200 root=/dev/mmcblk1p2 rw rootwait";
 		stdout-path = &uart2;
 	};
 
