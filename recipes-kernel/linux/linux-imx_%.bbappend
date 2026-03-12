@@ -1,5 +1,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}/files:"
 
+inherit kernel-uboot-deploy
+
 SRC_URI += "file://srg-imx8p-a11-04.cfg \
             file://srg-imx8p-a11-04.dts \
             file://srg-imx8p-a11-04-rpmsg.dts \
