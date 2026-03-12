@@ -226,7 +226,7 @@
 &flexspi {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_flexspi0>;
-	status = "okay";
+	status = "disabled";
 
 	flash@0 {
 		compatible = "jedec,spi-nor";
@@ -272,7 +272,7 @@
 &pwm4 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_pwm4>;
-	status = "okay";
+	status = "disabled";
 };
 
 &aud2htx {
@@ -585,7 +585,7 @@
 		assigned-clock-rates = <24000000>;
 		powerdown-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
 		reset-gpios = <&gpio1 6 GPIO_ACTIVE_LOW>;
-		status = "okay";
+		status = "disabled";
 
 		port {
 			ov5640_mipi_0_ep: endpoint {
@@ -630,6 +630,7 @@
 		//	"EXP_P1_5",
 		//	"EXP_P1_6",
 		//	"EXP_P1_7";
+		status = "disabled";
 	};
 
 	codec: wm8960@1a {
@@ -772,24 +773,6 @@
 	assigned-clock-rates = <10000000>;
     assigned-clock-parents = <&clk IMX8MP_SYS_PLL2_50M>;
 	vpcie-supply = <&reg_pcie0>;
-	status = "okay";
-};
-
-&pwm1 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_pwm1>;
-	status = "okay";
-};
-
-&pwm2 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_pwm2>;
-	status = "okay";
-};
-
-&pwm4 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_pwm4>;
 	status = "okay";
 };
 
@@ -1205,11 +1188,12 @@
 		>;
 	};
 
-	pinctrl_typec: typec1grp {
+	/*pinctrl_typec: typec1grp {
 		fsl,pins = <
 			//MX8MP_IOMUXC_SAI1_TXD7__GPIO4_IO19	0x1c4
 		>;
 	};
+	*/
 
 	pinctrl_uart2: uart2grp {
 		fsl,pins = <
