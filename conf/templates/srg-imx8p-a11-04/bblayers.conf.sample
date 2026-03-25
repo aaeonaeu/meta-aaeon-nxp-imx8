@@ -17,4 +17,7 @@ BBLAYERS ?= " \
     ##OEROOT##/../meta-arm/meta-arm \ 
     ##OEROOT##/../meta-arm/meta-arm-toolchain \
     ##OEROOT##/../meta-aaeon-nxp-imx8 \
+    ##OEROOT##/../meta-welma-aaeon-imx \
+    ##OEROOT##/../meta-welma \
+    ##OEROOT##/../meta-swupdate \
 "
