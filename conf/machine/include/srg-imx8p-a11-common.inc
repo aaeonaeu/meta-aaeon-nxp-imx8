@@ -58,6 +58,8 @@ IMXBOOT_TARGETS_BASENAME = "flash_evk"
 # set the bootloader to u-boot-imx instead when NXP BSP is used.
 IMX_DEFAULT_BSP = "nxp"
 
+RPROVIDES:u-boot-imx-tools-mkimage-native = "u-boot-tools-mkimage-native"
+
 SERIAL_CONSOLES = "115200;ttymxc1"
 
 BOOT_SIGNING_MECHANISM = "imx"
