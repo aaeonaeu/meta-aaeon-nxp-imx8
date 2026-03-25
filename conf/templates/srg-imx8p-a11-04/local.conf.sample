@@ -278,3 +278,5 @@ CONF_VERSION = "2"
 ACCEPT_FSL_EULA = "1"
 
 IMAGE_INSTALL:append = " service-tools"
+
+WELMA_SECURE_BOOT ?= "1"
