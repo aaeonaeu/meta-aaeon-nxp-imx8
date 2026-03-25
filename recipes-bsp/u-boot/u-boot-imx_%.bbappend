@@ -5,6 +5,8 @@ inherit uboot-config
 SRC_URI += "file://srg-imx8p-a11-04.dts \
             file://srg-imx8p-a11-04-u-boot.dtsi \
             file://0001-add-srg-imx8p-a11-04-board.patch \
+            file://memory-layout.cfg \
+            file://secure-boot.cfg \
             "
 
 SRC_URI:append:srg-imx8p-a11-04 = " \
