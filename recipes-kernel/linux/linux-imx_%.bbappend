@@ -7,6 +7,8 @@ SRC_URI += "file://srg-imx8p-a11-04.cfg \
             file://srg-imx8p-a11-04-rpmsg.dts \
             file://srg-imx8p-a11-04-ecspi-slave.dts \
            "
+           
+DELTA_KERNEL_DEFCONFIG += "srg-imx8p-a11-04.cfg"
 
 # Install DTS files into the kernel dts directory
 do_patch:append() {
